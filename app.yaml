@@ -1,1 +1,14 @@
-command: ["uv", "run", "custom-mcp-server"]
+command:
+  [
+    "opentelemetry-instrument",
+    "uvicorn",
+    "server.app:combined_app",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "8000",
+  ]
+
+env:
+  - name: OTEL_TRACES_SAMPLER
+    value: "always_on"
