@@ -1,5 +1,8 @@
 # MCP Server - Hello World
 
+For the custom changes added on top of the original template, see
+[README_Changes.md](README_Changes.md).
+
 A simple, production-ready template for building Model Context Protocol (MCP) servers using FastMCP and FastAPI. This project demonstrates how to create custom tools that AI assistants can discover and invoke.
 
 ### Key Concepts
@@ -353,5 +356,3 @@ uv sync  # or pip install -r requirements.txt
 ## AI Assistant Context
 
 See [`Claude.md`](./Claude.md) for detailed project context specifically designed for AI assistants working with this codebase.
-
-

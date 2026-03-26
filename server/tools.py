@@ -13,6 +13,7 @@ Each tool should:
 """
 
 from server import utils
+from server.ucf.discovery import register_discovered_tools
 
 
 def load_tools(mcp_server):
@@ -106,6 +107,5 @@ def load_tools(mcp_server):
         except Exception as e:
             return {"error": str(e), "message": "Failed to retrieve user information"}
 
-    """
-    TODO: Add more tools as necessary
-    """
+    registered_count = register_discovered_tools(mcp_server)
+    print(f"Successfully registered {registered_count} Unity Catalog Functions as MCP tools")
