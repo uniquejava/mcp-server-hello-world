@@ -195,12 +195,14 @@ def execute_function(function_info: FunctionInfo, kwargs: dict[str, Any]) -> dic
         }
 
     rows = response.result.data_array if response.result else None
-    result = parse_result(rows, get_column_names(response, function_info))
+    column_names = get_column_names(response, function_info)
+    result = parse_result(rows, column_names)
     return {
         "success": True,
         "function": function_info.full_name,
         "input": input_values,
         "result": result,
+        "columns": column_names,
         "statement_id": response.statement_id,
         "warehouse_id": warehouse_id,
     }

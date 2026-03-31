@@ -20,6 +20,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse
 from fastmcp import FastMCP
 
+from .managed_mcp.routes import router as managed_mcp_router
 from .tools import load_tools
 from .utils import header_store
 
@@ -47,6 +48,7 @@ app = FastAPI(
     version="0.1.0",
     lifespan=mcp_app.lifespan,  # Share the lifespan context with MCP app
 )
+app.include_router(managed_mcp_router)
 
 
 @app.get("/", include_in_schema=False)
